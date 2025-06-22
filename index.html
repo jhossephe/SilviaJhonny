@@ -1,8 +1,72 @@
-<div style="position: relative; width: 100%; height: 0; padding-top: 140.9524%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAGq8g5hh9Q/ddweONAAvX5hJeJa7aarlg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGq8g5hh9Q&#x2F;ddweONAAvX5hJeJa7aarlg&#x2F;view?utm_content=DAGq8g5hh9Q&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación personalizada</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f0f0f0;
+    }
+    .canva-container {
+      position: relative;
+      width: 100%;
+      padding-top: 140%;
+    }
+    iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+    }
+    .info {
+      padding: 1em;
+      background-color: #fff;
+      text-align: center;
+      font-size: 1.2em;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor de Canva -->
+  <div class="canva-container">
+    <iframe src="https://www.canva.com/design/DAGrHk66jo8/t3FmA5aCQ5ySfHtBuYsjrg/watch"
+      loading="lazy"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- Datos personalizados -->
+  <div class="info" id="personalizado">
+    Cargando invitación...
+  </div>
+
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="audio/musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Script para leer los parámetros -->
+  <script>
+    // Obtener parámetros de la URL
+    const params = new URLSearchParams(window.location.search);
+    const nombre = params.get("n") || "Invitado Especial";
+    const pases = params.get("p") || "1";
+
+    // Mostrar mensaje personalizado
+    const contenedor = document.getElementById("personalizado");
+    contenedor.innerHTML = `
+      <strong>Invitados:</strong> ${decodeURIComponent(nombre)}<br/>
+      <strong>Número de pases:</strong> ${pases}
+    `;
+  </script>
+</body>
+</html>
