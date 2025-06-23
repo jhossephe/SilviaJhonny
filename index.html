@@ -2,26 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Invitación</title>
   <link href="https://fonts.googleapis.com/css2?family=Amoresa+Aged&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       background-color: #ada389;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       font-family: 'Amoresa Aged', cursive;
+      display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       transition: all 0.5s ease;
     }
 
     button {
-      font-family: 'Amoresa Aged', cursive;
-      font-size: 2rem;
-      padding: 18px 36px;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      padding: 1em 2em;
       color: #fffaf0;
       background: linear-gradient(145deg, #bda987, #978b6e);
       border: none;
@@ -40,24 +44,33 @@
 
     #invitacion {
       display: none;
-      width: 100%;
-      max-width: 800px;
+      width: 90%;
+      max-width: 900px;
       margin-top: 2rem;
     }
 
     iframe {
       width: 100%;
-      height: 600px;
+      aspect-ratio: 9 / 16;
       border: none;
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.25);
     }
 
     a {
-      color: white;
-      font-size: 1.2rem;
-      text-decoration: none;
+      display: block;
       margin-top: 1rem;
+      font-size: 1rem;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Media Query para altura en pantallas pequeñas */
+    @media (max-height: 600px) {
+      iframe {
+        aspect-ratio: 16 / 9;
+      }
     }
   </style>
 </head>
