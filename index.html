@@ -14,6 +14,8 @@
       align-items: center;
       height: 100vh;
       font-family: 'Amoresa Aged', cursive;
+      flex-direction: column;
+      transition: all 0.5s ease;
     }
 
     button {
@@ -27,6 +29,7 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.3);
       cursor: pointer;
       transition: all 0.3s ease;
+      z-index: 2;
     }
 
     button:hover {
@@ -34,19 +37,55 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.35);
       background: linear-gradient(145deg, #c4b59b, #8f836a);
     }
+
+    #invitacion {
+      display: none;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 2rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
-  <audio id="audio" src="musica.mp3"></audio>
-  <button onclick="entrar()">Entrar a la invitación</button>
+  <audio id="audio" src="musica.mp3" loop></audio>
+
+  <button onclick="mostrarInvitacion()">Entrar a la invitación</button>
+
+  <div id="invitacion">
+    <iframe 
+      loading="lazy"
+      src="https://www.canva.com/design/DAGq8g5hh9Q/LqmOfE1Zn79PVVQ7C2YgfQ/view?embed"
+      allowfullscreen="allowfullscreen"
+      allow="fullscreen">
+    </iframe>
+    <a href="https://www.canva.com/design/DAGq8g5hh9Q/LqmOfE1Zn79PVVQ7C2YgfQ/view?utm_content=DAGq8g5hh9Q&utm_campaign=designshare&utm_medium=embeds&utm_source=link" 
+      target="_blank" rel="noopener">Silvia y Jhonny</a> de jhos Nava
+  </div>
 
   <script>
-    function entrar() {
+    function mostrarInvitacion() {
       const audio = document.getElementById('audio');
+      const boton = document.querySelector('button');
+      const invitacion = document.getElementById('invitacion');
+
       audio.play();
-      setTimeout(() => {
-        window.location.href = "invitacion.html";
-      }, 1500);
+      boton.style.display = "none";
+      invitacion.style.display = "block";
     }
   </script>
 </body>
