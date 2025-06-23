@@ -15,59 +15,24 @@
       padding: 0;
       background-color: #ada389;
       font-family: 'Amoresa Aged', cursive;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
       overflow-x: hidden;
       position: relative;
     }
 
-    button {
-      font-size: clamp(1.5rem, 5vw, 2.5rem);
-      padding: 1em 2em;
-      color: #fffaf0;
-      background: linear-gradient(145deg, #bda987, #978b6e);
-      border: none;
-      border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      z-index: 2;
+    #pantalla-inicial {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-image: url("https://drive.google.com/uc?export=view&id=1ZYIyv9WGAFC7Zmjq-TzR0pSmbxdDvrct");
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
 
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.35);
-      background: linear-gradient(145deg, #c4b59b, #8f836a);
-    }
-
-    #invitacion {
-      display: none;
-      width: 90%;
-      max-width: 900px;
-      margin-top: 2rem;
-    }
-
-    iframe {
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    }
-
-    a {
-      display: block;
-      margin-top: 1rem;
-      font-size: 1rem;
-      text-align: center;
-      color: white;
-      text-decoration: none;
-    }
-
-    .flores {
+    #pantalla-inicial .flores {
       position: absolute;
       top: 0;
       bottom: 0;
@@ -103,18 +68,61 @@
         opacity: 0.3;
       }
     }
+
+    button {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      padding: 1em 2em;
+      color: #fffaf0;
+      background: linear-gradient(145deg, #bda987, #978b6e);
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+      background: linear-gradient(145deg, #c4b59b, #8f836a);
+    }
+
+    #invitacion {
+      display: none;
+      width: 90%;
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+
+    iframe {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    a {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <audio id="audio" src="musica.mp3" loop></audio>
 
-  <!-- Flores visibles solo al inicio -->
-  <div id="flores" class="flores">
-    <div class="flor left"></div>
-    <div class="flor right"></div>
+  <div id="pantalla-inicial">
+    <div class="flores">
+      <div class="flor left"></div>
+      <div class="flor right"></div>
+    </div>
+    <button onclick="mostrarInvitacion()">Entrar a la invitación</button>
   </div>
-
-  <button id="boton" onclick="mostrarInvitacion()">Entrar a la invitación</button>
 
   <div id="invitacion">
     <iframe 
@@ -128,8 +136,7 @@
   <script>
     function mostrarInvitacion() {
       document.getElementById('audio').play();
-      document.getElementById('boton').style.display = 'none';
-      document.getElementById('flores').style.display = 'none';
+      document.getElementById('pantalla-inicial').style.display = 'none';
       document.getElementById('invitacion').style.display = 'block';
     }
   </script>
