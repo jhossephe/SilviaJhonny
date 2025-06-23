@@ -20,7 +20,8 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      transition: all 0.5s ease;
+      overflow-x: hidden;
+      position: relative;
     }
 
     button {
@@ -66,16 +67,42 @@
       text-decoration: none;
     }
 
-    /* Media Query para altura en pantallas pequeñas */
-    @media (max-height: 600px) {
-      iframe {
-        aspect-ratio: 16 / 9;
+    .flor {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .flor.left {
+      left: 0;
+      background-image: url("https://drive.google.com/uc?export=view&id=1yConbQXsVeB0Q9Cs-Dq60jEhLb2cv6Pb");
+    }
+
+    .flor.right {
+      right: 0;
+      background-image: url("https://drive.google.com/uc?export=view&id=1yConbQXsVeB0Q9Cs-Dq60jEhLb2cv6Pb");
+      transform: scaleX(-1); /* reflejo horizontal para equilibrar */
+    }
+
+    @media (max-width: 600px) {
+      .flor {
+        width: 60px;
+        opacity: 0.3;
       }
     }
   </style>
 </head>
 <body>
   <audio id="audio" src="musica.mp3" loop></audio>
+
+  <div class="flor left"></div>
+  <div class="flor right"></div>
 
   <button onclick="mostrarInvitacion()">Entrar a la invitación</button>
 
