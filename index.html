@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Invitación</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amoresa+Aged&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amoresa+Aged&display=swap" rel="stylesheet"/>
   <style>
     * {
       box-sizing: border-box;
@@ -67,16 +67,23 @@
       text-decoration: none;
     }
 
-    .flor {
+    .flores {
       position: absolute;
       top: 0;
       bottom: 0;
+      width: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .flor {
+      position: absolute;
       width: 120px;
+      height: auto;
+      opacity: 0.4;
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
-      opacity: 0.4;
-      pointer-events: none;
     }
 
     .flor.left {
@@ -87,7 +94,7 @@
     .flor.right {
       right: 0;
       background-image: url("https://drive.google.com/uc?export=view&id=1yConbQXsVeB0Q9Cs-Dq60jEhLb2cv6Pb");
-      transform: scaleX(-1); /* reflejo horizontal para equilibrar */
+      transform: scaleX(-1);
     }
 
     @media (max-width: 600px) {
@@ -101,10 +108,13 @@
 <body>
   <audio id="audio" src="musica.mp3" loop></audio>
 
-  <div class="flor left"></div>
-  <div class="flor right"></div>
+  <!-- Flores visibles solo al inicio -->
+  <div id="flores" class="flores">
+    <div class="flor left"></div>
+    <div class="flor right"></div>
+  </div>
 
-  <button onclick="mostrarInvitacion()">Entrar a la invitación</button>
+  <button id="boton" onclick="mostrarInvitacion()">Entrar a la invitación</button>
 
   <div id="invitacion">
     <iframe 
@@ -119,13 +129,10 @@
 
   <script>
     function mostrarInvitacion() {
-      const audio = document.getElementById('audio');
-      const boton = document.querySelector('button');
-      const invitacion = document.getElementById('invitacion');
-
-      audio.play();
-      boton.style.display = "none";
-      invitacion.style.display = "block";
+      document.getElementById('audio').play();
+      document.getElementById('boton').style.display = 'none';
+      document.getElementById('flores').style.display = 'none';
+      document.getElementById('invitacion').style.display = 'block';
     }
   </script>
 </body>
